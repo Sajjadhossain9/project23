@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Theme tokens (RGB triplets for Tailwind alpha-value support) ---------- */
+@layer base {
+  :root {
+    /* Surfaces */
+    --bg: 250 250 247;          /* #FAFAF7 warm off-white */
+    --bg-surface: 255 255 255;  /* #FFFFFF */
+    --bg-raised: 245 245 240;   /* #F5F5F0 */
+    --bg-elevated: 255 255 255;
+
+    /* Text */
+    --fg: 10 37 64;             /* #0A2540 Midnight */
+    --fg-secondary: 74 86 104;  /* #4A5668 */
+    --fg-tertiary: 135 146 163; /* #8792A3 */
+    --fg-inverse: 255 255 255;
+
+    /* Brand */
+    --brand: 10 37 64;          /* Midnight */
+    --brand-hover: 18 53 86;    /* #123556 */
+
+    /* Accent */
+    --accent: 0 180 166;        /* #00B4A6 Teal */
+    --accent-soft: 230 248 246; /* #E6F8F6 */
+    --accent-ink: 0 61 56;      /* #003D38 */
+
+    /* Highlight */
+    --highlight: 245 166 35;    /* #F5A623 */
+
+    /* Borders (solid equivalents of the rgba tokens) */
+    --border-subtle: 232 234 240;
+    --border-default: 216 221 230;
+    --border-strong: 168 178 196;
+
+    /* Semantic */
+    --success: 29 158 117;
+    --warning: 186 117 23;
+    --danger: 226 75 74;
+  }
+
+  .dark {
+    --bg: 11 15 20;             /* #0B0F14 */
+    --bg-surface: 20 26 34;     /* #141A22 */
+    --bg-raised: 26 32 41;      /* #1A2029 */
+    --bg-elevated: 35 42 53;    /* #232A35 */
+
+    --fg: 240 243 248;          /* #F0F3F8 */
+    --fg-secondary: 168 173 181;
+    --fg-tertiary: 107 114 128;
+    --fg-inverse: 10 37 64;
+
+    --brand: 230 241 251;       /* #E6F1FB Ice */
+    --brand-hover: 255 255 255;
+
+    --accent: 93 202 165;       /* #5DCAA5 */
+    --accent-soft: 14 35 30;
+    --accent-ink: 225 245 238;
+
+    --highlight: 250 199 117;
+
+    --border-subtle: 28 35 45;
+    --border-default: 45 54 67;
+    --border-strong: 80 92 110;
+
+    --success: 93 202 165;
+    --warning: 250 199 117;
+    --danger: 240 149 149;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  }
+
+  /* Locale-aware typography: Bengali gets slightly smaller size + looser leading */
+  :lang(bn) {
+    @apply font-bn;
+    font-size: 0.94em;
+    line-height: 1.08;
+  }
+
+  /* Focus ring — always visible for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Utility: visually hidden but accessible to screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
