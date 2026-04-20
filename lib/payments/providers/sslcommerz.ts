@@ -15,7 +15,7 @@
  * Reference: https://developer.sslcommerz.com/
  */
 
-import { PAYMENT_CONFIG } from "./config";
+import { PAYMENT_CONFIG } from "../config";
 import type {
   PaymentProvider,
   PaymentInitInput,
@@ -23,7 +23,7 @@ import type {
   PaymentVerifyInput,
   PaymentVerifyResult,
   PaymentStatus,
-} from "./types";
+} from "../types";
 
 const SANDBOX_BASE = "https://sandbox.sslcommerz.com";
 const LIVE_BASE = "https://securepay.sslcommerz.com";
